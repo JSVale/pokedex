@@ -1,0 +1,37 @@
+.container {
+  min-height: 100vh;
+  position: relative;
+}
+
+.firstPokeball {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 8%;
+  left: -40px;
+  transform: rotate(-15deg);
+  z-index: -1;
+}
+
+.secondPokeball {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: rotate(30deg);
+  z-index: -1;
+}
+
+.firstPokeball svg,
+.secondPokeball svg {
+  height: 100%;
+  width: 100%;
+  opacity: 0.6;
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  z-index: 10;
+}

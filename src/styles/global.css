@@ -1,3 +1,8 @@
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,4 +11,6 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  background-color: var(--white);
+  min-height: 100vh;
 }
