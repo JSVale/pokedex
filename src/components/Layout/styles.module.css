@@ -7,4 +7,5 @@
   margin: 0 auto;
   z-index: 10;
   padding: 0 8px;
+  max-width: 960px;
 }

@@ -1,0 +1,42 @@
+.container {
+  position: relative;
+  background-color: #fecd57;
+  display: flex;
+  justify-content: space-between;
+  max-height: 130px;
+}
+
+.pokeball {
+  max-width: 130px;
+}
+
+.pokeball svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+.pokemonImage {
+  position: absolute;
+  height: 240px;
+  width: 240px;
+  right: -14%;
+  top: -80%;
+}
+
+.pokemonInfo {
+  padding: 12px;
+}
+
+.pokemonInfo h1 {
+  color: #f8f8f8;
+  font-size: 28px;
+}
+
+.pokemonType {
+  color: #f8f8f8;
+  background: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  padding: 10px;
+  margin-top: 4px;
+}

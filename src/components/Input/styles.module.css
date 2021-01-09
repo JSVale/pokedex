@@ -13,9 +13,10 @@
   background: transparent;
   flex: 1;
   border: 0;
-
+  font-size: 18px;
   padding: 12px 16px;
   outline: none;
+  color: #424242;
 }
 
 .searchInputContainer input::placeholder {

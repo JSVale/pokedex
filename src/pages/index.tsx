@@ -5,6 +5,7 @@ import { NextPage } from 'next'
 import HomeStyles from '../styles/pages/Home.module.css'
 
 import Input from '../components/Input'
+import PokemonCard from '../components/PokemonCard'
 
 const Home: NextPage = () => {
   const [search, setSearch] = useState('')
@@ -18,6 +19,13 @@ const Home: NextPage = () => {
           onChange={event => setSearch(event.target.value)}
           value={search}
         />
+      </div>
+
+      <div className={HomeStyles.resultsContainer}>
+        <PokemonCard />
+        <PokemonCard />
+        <PokemonCard />
+        <PokemonCard />
       </div>
     </div>
   )

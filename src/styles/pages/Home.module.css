@@ -1,6 +1,5 @@
 .container {
   padding-top: 40px;
-  /* background-color: tomato; */
 }
 
 .title {
@@ -9,7 +8,16 @@
 }
 
 .searchContainer {
-  margin-top: 18px;
+  width: 80%;
+  margin: 18px auto 0;
+}
+
+.resultsContainer {
+  margin: 64px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 64px;
+  column-gap: 12px;
 }
 
 @media screen and (min-width: 480px) {
