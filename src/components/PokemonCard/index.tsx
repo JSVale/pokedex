@@ -1,19 +1,33 @@
 import React from 'react'
 import Image from 'next/image'
 
+/**
+ * Components
+ */
 import Pokeball from '../Pokeball'
 
+/**
+ * Styles
+ */
 import styles from './styles.module.css'
+import { colorMapping } from '../../styles/colors'
+
+/**
+ * Types
+ */
+import { Pokemon } from '../../types/pokemon'
 
 interface Props {
-  url?: string
+  pokemon: Pokemon
 }
 
-const PokemonCard: React.FC<Props> = ({ url }) => {
+const PokemonCard: React.FC<Props> = ({ pokemon }) => {
+  const backgroundColor: string = colorMapping[pokemon.color]
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ backgroundColor }}>
       <div className={styles.pokemonInfo}>
-        <h1>Pikachu</h1>
+        <h1>{pokemon.name}</h1>
         <div className={styles.pokemonType}>
           <span>Grass</span>
         </div>
@@ -21,18 +35,17 @@ const PokemonCard: React.FC<Props> = ({ url }) => {
 
       <div className={styles.pokeball}>
         <Pokeball />
-      </div>
-
-      <div className={styles.pokemonImage}>
-        <Image
-          src={
-            url ||
-            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'
-          }
-          alt="Mountains"
-          layout="fill"
-          objectFit="cover"
-        />
+        <div className={styles.pokemonImage}>
+          <Image
+            src={
+              pokemon.sprites?.other['official-artwork'].front_default ||
+              pokemon.sprites.front_default
+            }
+            alt="Mountains"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       </div>
     </div>
   )

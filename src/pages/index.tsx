@@ -23,8 +23,6 @@ interface Props {
 const Home: NextPage<Props> = ({ pokemons }) => {
   const [search, setSearch] = useState('')
 
-  console.log(pokemons)
-
   return (
     <div className={HomeStyles.container}>
       <h1 className={HomeStyles.title}>Pokedex Fatec</h1>
@@ -37,10 +35,9 @@ const Home: NextPage<Props> = ({ pokemons }) => {
       </div>
 
       <div className={HomeStyles.resultsContainer}>
-        <PokemonCard />
-        <PokemonCard url="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" />
-        <PokemonCard />
-        <PokemonCard />
+        {pokemons?.map(pokemon => {
+          return <PokemonCard pokemon={pokemon} key={pokemon.id} />
+        })}
       </div>
     </div>
   )

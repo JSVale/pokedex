@@ -8,6 +8,7 @@
 
 .pokeball {
   max-width: 130px;
+  position: relative;
 }
 
 .pokeball svg {
@@ -18,14 +19,15 @@
 
 .pokemonImage {
   position: absolute;
-  height: 240px;
-  width: 240px;
-  right: -14%;
-  top: -80%;
+  height: 130px;
+  width: 130px;
+  top: -40%;
+  left: 4px;
 }
 
 .pokemonInfo {
   padding: 12px;
+  text-transform: capitalize;
 }
 
 .pokemonInfo h1 {
