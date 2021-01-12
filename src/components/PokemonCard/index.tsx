@@ -5,7 +5,11 @@ import Pokeball from '../Pokeball'
 
 import styles from './styles.module.css'
 
-const PokemonCard: React.FC = () => {
+interface Props {
+  url?: string
+}
+
+const PokemonCard: React.FC<Props> = ({ url }) => {
   return (
     <div className={styles.container}>
       <div className={styles.pokemonInfo}>
@@ -21,7 +25,10 @@ const PokemonCard: React.FC = () => {
 
       <div className={styles.pokemonImage}>
         <Image
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+          src={
+            url ||
+            'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'
+          }
           alt="Mountains"
           layout="fill"
           objectFit="cover"
