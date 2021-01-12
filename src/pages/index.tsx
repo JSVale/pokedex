@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useState } from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import axios from 'axios'
@@ -21,23 +22,41 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ pokemons }) => {
-  const [search, setSearch] = useState('')
+  const [search] = useState('')
+  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>(
+    [] as Pokemon[]
+  )
+
+  const handleTypeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.value === '') {
+      setFilteredPokemons([])
+    }
+
+    const regex = '' + event.target.value + '.*'
+
+    const filteredPokemons = pokemons.filter(pokemon =>
+      pokemon.name.match(new RegExp(regex, 'is'))
+    )
+
+    setFilteredPokemons(filteredPokemons)
+  }
 
   return (
     <div className={HomeStyles.container}>
       <h1 className={HomeStyles.title}>Pokedex Fatec</h1>
 
       <div className={HomeStyles.searchContainer}>
-        <Input
-          onChange={event => setSearch(event.target.value)}
-          value={search}
-        />
+        <Input onChange={handleTypeEvent} value={search} />
       </div>
 
       <div className={HomeStyles.resultsContainer}>
-        {pokemons?.map(pokemon => {
-          return <PokemonCard pokemon={pokemon} key={pokemon.id} />
-        })}
+        {filteredPokemons.length
+          ? filteredPokemons?.map(pokemon => {
+              return <PokemonCard pokemon={pokemon} key={pokemon.id} />
+            })
+          : pokemons?.map(pokemon => {
+              return <PokemonCard pokemon={pokemon} key={pokemon.id} />
+            })}
       </div>
     </div>
   )
