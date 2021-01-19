@@ -1,5 +1,13 @@
 .container {
-  padding-top: 40px;
+  min-height: 100vh;
+  position: relative;
+}
+
+.content {
+  margin: 0 auto;
+  z-index: 10;
+  padding: 40px 8px;
+  max-width: 960px;
 }
 
 .title {

@@ -10,7 +10,7 @@ import Input from '../components/Input'
 import PokemonCard from '../components/PokemonCard'
 
 // Styles
-import HomeStyles from '../styles/pages/Home.module.css'
+import styles from '../styles/pages/Home.module.css'
 
 /**
  * Types
@@ -21,44 +21,43 @@ interface Props {
   pokemons: Pokemon[]
 }
 
-const Home: NextPage<Props> = ({ pokemons }) => {
-  const [search] = useState('')
-  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>(
-    [] as Pokemon[]
-  )
+const Home: NextPage<Props> = ({ pokemons: pokemonsFromBackend }) => {
+  const [search, setSearch] = useState('')
+
+  const [pokemons, setPokemons] = useState<Pokemon[]>(pokemonsFromBackend)
 
   const handleTypeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.value === '') {
-      setFilteredPokemons([])
+      setPokemons([])
     }
 
-    const regex = '' + event.target.value + '.*'
+    setSearch(event.target.value)
 
-    const filteredPokemons = pokemons.filter(pokemon =>
+    const regex = `${event.target.value}.*`
+
+    const filteredPokemons = pokemonsFromBackend.filter(pokemon =>
       pokemon.name.match(new RegExp(regex, 'is'))
     )
 
-    setFilteredPokemons(filteredPokemons)
+    setPokemons(filteredPokemons)
   }
 
   return (
-    <div className={HomeStyles.container}>
-      <h1 className={HomeStyles.title}>Pokedex Fatec</h1>
+    <main className={styles.container}>
+      <section className={styles.content}>
+        <h1 className={styles.title}>Pokedex Fatec</h1>
 
-      <div className={HomeStyles.searchContainer}>
-        <Input onChange={handleTypeEvent} value={search} />
-      </div>
+        <div className={styles.searchContainer}>
+          <Input onChange={handleTypeEvent} value={search} />
+        </div>
 
-      <div className={HomeStyles.resultsContainer}>
-        {filteredPokemons.length
-          ? filteredPokemons?.map(pokemon => {
-              return <PokemonCard pokemon={pokemon} key={pokemon.id} />
-            })
-          : pokemons?.map(pokemon => {
-              return <PokemonCard pokemon={pokemon} key={pokemon.id} />
-            })}
-      </div>
-    </div>
+        <div className={styles.resultsContainer}>
+          {pokemons?.map(pokemon => {
+            return <PokemonCard pokemon={pokemon} key={pokemon.id} />
+          })}
+        </div>
+      </section>
+    </main>
   )
 }
 

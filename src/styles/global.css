@@ -11,6 +11,6 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--white);
+  background-color: #fff;
   min-height: 100vh;
 }

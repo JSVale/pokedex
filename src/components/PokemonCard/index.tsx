@@ -37,10 +37,7 @@ const PokemonCard: React.FC<Props> = ({ pokemon }) => {
         <Pokeball />
         <div className={styles.pokemonImage}>
           <Image
-            src={
-              pokemon.sprites?.other['official-artwork'].front_default ||
-              pokemon.sprites.front_default
-            }
+            src={pokemon.sprites?.other['official-artwork'].front_default}
             alt="Mountains"
             layout="fill"
             objectFit="cover"
