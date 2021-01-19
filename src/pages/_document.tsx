@@ -14,7 +14,12 @@ export default class MyDocument extends Document {
             rel="stylesheet"
           />
 
-          <link rel="icon" href="https://rocketseat.com.br/favicon.ico" />
+          <link
+            rel="shortcut icon"
+            href="/static/favicon.ico"
+            type="image/x-icon"
+          />
+          <link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
         </Head>
         <body>
           <Main />

@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 import React, { useState } from 'react'
 import { GetStaticProps, NextPage } from 'next'
+import Head from 'next/head'
 import axios from 'axios'
 
 /**
@@ -44,6 +45,10 @@ const Home: NextPage<Props> = ({ pokemons: pokemonsFromBackend }) => {
 
   return (
     <main className={styles.container}>
+      <Head>
+        <title>Pokedex Fatec</title>
+      </Head>
+
       <section className={styles.content}>
         <h1 className={styles.title}>Pokedex Fatec</h1>
 

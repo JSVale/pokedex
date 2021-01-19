@@ -6,10 +6,10 @@ import styles from './styles.module.css'
 // Explain the interface inheritance
 type InputProps = InputHTMLAttributes<HTMLInputElement>
 
-const Input: React.FC<InputProps> = ({ ...rest }) => {
+const Input: React.FC<InputProps> = props => {
   return (
     <div className={styles.searchInputContainer}>
-      <input type="text" {...rest} />
+      <input type="text" {...props} />
       <MdSearch size={28} className={styles.icon} />
     </div>
   )

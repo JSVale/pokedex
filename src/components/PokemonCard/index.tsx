@@ -21,7 +21,9 @@ interface Props {
   pokemon: Pokemon
 }
 
-const PokemonCard: React.FC<Props> = ({ pokemon }) => {
+const PokemonCard: React.FC<Props> = props => {
+  const { pokemon } = props
+
   const backgroundColor: string = colorMapping[pokemon.color]
 
   return (
