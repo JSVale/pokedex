@@ -1,8 +1,6 @@
-/* eslint-disable indent */
 import React, { useState } from 'react'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import axios from 'axios'
 
 /**
  * Components
@@ -10,13 +8,20 @@ import axios from 'axios'
 import Input from '../components/Input'
 import PokemonCard from '../components/PokemonCard'
 
-// Styles
+/**
+ * Styles
+ */
 import styles from '../styles/pages/Home.module.css'
 
 /**
  * Types
  */
 import { Pokemon } from '../types/pokemon'
+
+/**
+ * Services
+ */
+import { fetchPokemons } from '../services/pokemons'
 
 interface Props {
   pokemons: Pokemon[]
@@ -53,7 +58,11 @@ const Home: NextPage<Props> = ({ pokemons: pokemonsFromBackend }) => {
         <h1 className={styles.title}>Pokedex Fatec</h1>
 
         <div className={styles.searchContainer}>
-          <Input onChange={handleTypeEvent} value={search} />
+          <Input
+            onChange={handleTypeEvent}
+            value={search}
+            placeholder="Digite o nome do pokemon"
+          />
         </div>
 
         <div className={styles.resultsContainer}>
@@ -67,13 +76,8 @@ const Home: NextPage<Props> = ({ pokemons: pokemonsFromBackend }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await axios.get<Pokemon[]>(
-    `${process.env.WEB_APP_URL}/api/pokemons`
-  )
-
-  const pokemons = response.data
-
-  return { props: { pokemons } }
+  const pokemons = await fetchPokemons()
+  return { props: { pokemons }, revalidate: 1 }
 }
 
 export default Home
