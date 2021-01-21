@@ -5,6 +5,7 @@
   justify-content: space-between;
   max-height: 130px;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .pokeball {
@@ -37,9 +38,20 @@
 }
 
 .pokemonType {
-  color: #f8f8f8;
+  display: flex;
+  margin-top: 12px;
+}
+
+.pokemonType span {
+  color: #fff;
   background: rgba(255, 255, 255, 0.2);
   text-align: center;
-  padding: 10px;
-  margin-top: 4px;
+  padding: 6px;
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.pokemonType span:not(:first-child) {
+  margin-left: 12px;
 }

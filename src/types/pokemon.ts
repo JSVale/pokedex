@@ -3,6 +3,15 @@ export interface Species {
   url: string
 }
 
+export interface Type {
+  name: string
+}
+
+export interface RootType {
+  slot: number
+  type: Type
+}
+
 export interface Pokemon {
   id: number
   name: string
@@ -19,4 +28,6 @@ export interface Pokemon {
       }
     }
   }
+  pokemonTypes: Type[]
+  types?: RootType[]
 }

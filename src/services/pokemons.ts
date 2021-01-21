@@ -8,7 +8,7 @@ import pokemonColors from '../constants/pokemonColors'
 /**
  * Types
  */
-import { Pokemon } from '../types/pokemon'
+import { Pokemon, Type } from '../types/pokemon'
 
 const LIMIT_OF_POKEMONS_TO_SEARCH = 100
 
@@ -49,6 +49,10 @@ export async function fetchPokemons(): Promise<Pokemon[]> {
         return !!specie
       })
 
+      const types: Type[] = pokemon.types.map(t => ({
+        name: t.type.name
+      }))
+
       return {
         id: pokemon.id,
         name: pokemon.name,
@@ -60,7 +64,8 @@ export async function fetchPokemons(): Promise<Pokemon[]> {
             dream_world: pokemon.sprites.other.dream_world
           }
         },
-        color: color.name
+        color: color.name,
+        pokemonTypes: types
       }
     })
     // This shuffles the array

@@ -31,7 +31,9 @@ const PokemonCard: React.FC<Props> = props => {
       <div className={styles.pokemonInfo}>
         <h1>{pokemon.name}</h1>
         <div className={styles.pokemonType}>
-          <span>Grass</span>
+          {pokemon.pokemonTypes.map(type => {
+            return <span key={type.name}>{type.name}</span>
+          })}
         </div>
       </div>
 
