@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Pokeball: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Pokeball: React.FC = () => {
         fill="#F5F5F6"
       />
     </svg>
-  )
-}
+  );
+};
 
-export default Pokeball
+export default Pokeball;
