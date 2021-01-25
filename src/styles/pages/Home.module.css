@@ -1,0 +1,14 @@
+.container {
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 960px;
+  background-color: pink;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 30px;
+  text-align: center;
+}

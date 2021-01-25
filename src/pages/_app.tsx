@@ -1,7 +1,7 @@
 import React from "react";
 import { AppProps } from "next/app";
 
-// Globals
+// Globals Styles
 import "../styles/reset.css";
 import "../styles/global.css";
 
