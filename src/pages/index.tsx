@@ -1,5 +1,4 @@
 import React from "react";
-import { NextPage } from "next";
 
 /**
  * Components
@@ -11,7 +10,29 @@ import PokemonCard from "../components/PokemonCard";
  */
 import styles from "../styles/pages/Home.module.css";
 
-const Home: NextPage = () => {
+/**
+ * Services
+ */
+import { fetchPokemons } from "../services/pokemon";
+
+/**
+ * Types
+ */
+import { Pokemon } from "../types/pokemon";
+
+/**
+ * É como se fosse uma roupinha
+ */
+interface Props {
+  pokemons: Pokemon[];
+}
+
+const Home = (props: Props) => {
+  /**
+   * Como fazer um map no React
+   */
+  console.log(props.pokemons);
+
   return (
     <main className={styles.container}>
       <section className={styles.content}>
@@ -41,5 +62,21 @@ const Home: NextPage = () => {
     </main>
   );
 };
+
+/**
+ * Buscando dados da Pokeapi.co
+ * GetStaticProps é responsável por buscar os dados na API
+ * Executada em tempo de build.
+ * Ela roda somente no servidor.
+ */
+export async function getStaticProps() {
+  const pokemons = await fetchPokemons();
+
+  return {
+    props: {
+      pokemons: pokemons,
+    },
+  };
+}
 
 export default Home;
