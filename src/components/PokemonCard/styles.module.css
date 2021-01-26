@@ -1,0 +1,52 @@
+.container {
+  background: #1e90ff;
+  max-height: 130px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 16px;
+}
+
+.info {
+  padding: 12px;
+  text-transform: capitalize;
+}
+
+.info h1 {
+  font-weight: bold;
+  font-size: 28px;
+  color: #fff;
+}
+
+.type {
+  margin-top: 8px;
+}
+
+.type span {
+  color: #f8f8f8;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.type span:not(:first-child) {
+  margin-left: 8px;
+}
+
+.pokeball {
+  max-width: 130px;
+  position: relative;
+}
+
+.pokeball svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+.image {
+  height: 130px;
+  width: 130px;
+  position: absolute;
+  top: -40%;
+}

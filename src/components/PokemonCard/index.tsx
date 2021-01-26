@@ -16,7 +16,9 @@ const PokemonCard: React.FC = () => {
     <div className={styles.container}>
       {/* Informações do pokemon */}
       <div className={styles.info}>
-        <h1>Pikachu</h1>
+        <h1>pikachu</h1>
+
+        {/* Div tipos do Pokemon */}
         <div className={styles.type}>
           <span>Eletric</span>
           <span>Water</span>
