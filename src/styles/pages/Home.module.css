@@ -4,11 +4,17 @@
 
 .content {
   max-width: 960px;
-  background-color: pink;
   margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 8px;
 }
 
 .title {
   font-size: 30px;
   text-align: center;
+  font-weight: bold;
+}
+
+.resultsContainer {
+  margin-top: 32px;
 }
