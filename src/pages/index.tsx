@@ -20,6 +20,22 @@ const Home: NextPage = () => {
         {/* Listagem dos pokemons */}
         <div className={styles.resultsContainer}>
           <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
+          <PokemonCard />
         </div>
       </section>
     </main>

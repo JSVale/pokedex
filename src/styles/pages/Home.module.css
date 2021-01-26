@@ -16,5 +16,9 @@
 }
 
 .resultsContainer {
-  margin-top: 32px;
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 64px;
+  column-gap: 16px;
 }
