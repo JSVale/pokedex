@@ -40,23 +40,10 @@ const Home = (props: Props) => {
 
         {/* Listagem dos pokemons */}
         <div className={styles.resultsContainer}>
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
-          <PokemonCard />
+          {props.pokemons.map(function (pokemon) {
+            // Precisa atribuir uma key
+            return <PokemonCard key={pokemon.id} />;
+          })}
         </div>
       </section>
     </main>
