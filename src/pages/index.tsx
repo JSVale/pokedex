@@ -28,11 +28,6 @@ interface Props {
 }
 
 const Home = (props: Props) => {
-  /**
-   * Como fazer um map no React
-   */
-  console.log(props.pokemons);
-
   return (
     <main className={styles.container}>
       <section className={styles.content}>
@@ -42,7 +37,7 @@ const Home = (props: Props) => {
         <div className={styles.resultsContainer}>
           {props.pokemons.map(function (pokemon) {
             // Precisa atribuir uma key
-            return <PokemonCard key={pokemon.id} />;
+            return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
           })}
         </div>
       </section>

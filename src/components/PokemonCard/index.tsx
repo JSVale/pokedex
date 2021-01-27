@@ -5,23 +5,40 @@ import Image from "next/image";
  * Styles
  */
 import styles from "./styles.module.css";
+import { colorMapping } from "../../styles/colors";
 
 /**
  * Components
  */
 import Pokeball from "../Pokeball";
 
-const PokemonCard: React.FC = () => {
+/**
+ * Types
+ */
+import { Pokemon } from "../../types/pokemon";
+
+interface Props {
+  pokemon: Pokemon;
+}
+
+const PokemonCard: React.FC<Props> = (props) => {
+  // props.pokemon.color = black | blue | pink | red
+  const backgroundColor = colorMapping[props.pokemon.color];
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ backgroundColor: backgroundColor }}
+    >
       {/* Informações do pokemon */}
       <div className={styles.info}>
-        <h1>pikachu</h1>
+        <h1>{props.pokemon.name}</h1>
 
         {/* Div tipos do Pokemon */}
         <div className={styles.type}>
-          <span>Eletric</span>
-          <span>Water</span>
+          {props.pokemon.pokemonTypes.map(function (type) {
+            return <span key={type.name}>{type.name}</span>;
+          })}
         </div>
       </div>
 
@@ -32,7 +49,7 @@ const PokemonCard: React.FC = () => {
         {/* Imagem do pokemon */}
         <div className={styles.image}>
           <Image
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+            src={props.pokemon.sprites.other["official-artwork"].front_default}
             alt="Pokemon"
             layout="fill"
             objectFit="cover"
