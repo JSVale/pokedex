@@ -4,6 +4,7 @@ import React from "react";
  * Components
  */
 import PokemonCard from "../components/PokemonCard";
+import Input from "../components/Input";
 
 /**
  * Styles
@@ -32,6 +33,10 @@ const Home = (props: Props) => {
     <main className={styles.container}>
       <section className={styles.content}>
         <h1 className={styles.title}>Pokedex Fatec</h1>
+
+        <div className={styles.inputContainer}>
+          <Input placeholder="Digite o nome do pokemon" />
+        </div>
 
         {/* Listagem dos pokemons */}
         <div className={styles.resultsContainer}>
