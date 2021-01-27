@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 /**
  * Components
@@ -29,18 +29,46 @@ interface Props {
 }
 
 const Home = (props: Props) => {
+  const [search, setSearch] = useState("");
+  // Estado para os pokemons
+  // O estado inicial é o que vem das props
+  // Estamos fazendo isso pq não podemos alterar a props diretamente
+  // Só podemos alterar o estado.
+  const [statePokemons, setStatePokemons] = useState(props.pokemons);
+
+  // Lidar com o evento "digitar" no input
+  function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
+    if (event.target.value === "") {
+      setStatePokemons(props.pokemons);
+    }
+
+    setSearch(event.target.value);
+
+    const regex = `${event.target.value}.*`;
+
+    const filteredPokemons = props.pokemons.filter((pokemon) =>
+      pokemon.name.match(new RegExp(regex, "is"))
+    );
+
+    setStatePokemons(filteredPokemons);
+  }
+
   return (
     <main className={styles.container}>
       <section className={styles.content}>
         <h1 className={styles.title}>Pokedex Fatec</h1>
 
         <div className={styles.inputContainer}>
-          <Input placeholder="Digite o nome do pokemon" />
+          <Input
+            onChange={handleOnChange}
+            value={search}
+            placeholder="Digite o nome do pokemon"
+          />
         </div>
 
         {/* Listagem dos pokemons */}
         <div className={styles.resultsContainer}>
-          {props.pokemons.map(function (pokemon) {
+          {statePokemons?.map(function (pokemon) {
             // Precisa atribuir uma key
             return <PokemonCard key={pokemon.id} pokemon={pokemon} />;
           })}
@@ -63,6 +91,8 @@ export async function getStaticProps() {
     props: {
       pokemons: pokemons,
     },
+    // INCREMENTAL STATIC REGENERATION
+    revalidate: 1,
   };
 }
 
