@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Head from "next/head";
 
 /**
  * Components
@@ -55,6 +56,9 @@ const Home = (props: Props) => {
 
   return (
     <main className={styles.container}>
+      <Head>
+        <title>Pokedex Fatec</title>
+      </Head>
       <section className={styles.content}>
         <h1 className={styles.title}>Pokedex Fatec</h1>
 
